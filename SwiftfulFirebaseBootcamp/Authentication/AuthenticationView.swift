@@ -9,10 +9,29 @@ import SwiftUI
 
 struct AuthenticationView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            NavigationLink {
+                SignInEmailView()
+            } label: {
+                Text("Sign In With Email")
+                    .font(.headline)
+                    .foregroundStyle(Color.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Sign In")
     }
 }
 
 #Preview {
-    AuthenticationView()
+    NavigationStack {
+        AuthenticationView()
+    }
 }
