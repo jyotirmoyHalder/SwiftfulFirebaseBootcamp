@@ -40,6 +40,6 @@ struct ProductCellView: View {
     }
 }
 
-#Preview {
-    ProductCellView(product: Product(id: 1, title: "Text", category: "test", description: "some description", price: 2.22, discountPercentage: 0.32, reviews: [], stock: 5, brand: "demo brand", thumbnail: "some thumbnail", images: []))
-}
+//#Preview {
+//    ProductCellView(product: Product(id: 1, title: "Text", category: "test", description: "some description", price: 2.22, discountPercentage: 0.32, reviews: [], stock: 5, brand: "demo brand", thumbnail: "some thumbnail", images: []))
+//}

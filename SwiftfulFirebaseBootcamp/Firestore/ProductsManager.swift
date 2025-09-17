@@ -28,7 +28,8 @@ final class ProductsManager {
     }
     
     private func getallProducts() async throws -> [Product] {
-        try await productsCollection.getDocuments(as: Product.self)
+        try await productsCollection
+            .getDocuments(as: Product.self)
     }
     
     private func getAllProductsSortedByPrice(descending: Bool) async throws -> [Product] {
@@ -61,6 +62,12 @@ final class ProductsManager {
         
         return try await getallProducts()
     }
+    
+//   ` func getProductByRating(count: Int) async throws -> [Product] {
+//        try await productsCollection
+//            .order(by: Product.CodingKeys.reviews.)
+//    }`
+    
 }
 
 extension Query {

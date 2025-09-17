@@ -25,6 +25,9 @@ struct Product: Identifiable, Codable, Equatable {
     let thumbnail: String?
     let images: [String]?
     
+    
+    let averageRating: Double?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -37,6 +40,9 @@ struct Product: Identifiable, Codable, Equatable {
         case category
         case thumbnail
         case images
+        
+        case averageRating = "averageRating"
+
     }
     
     static func ==(lhs: Product, rhs: Product) -> Bool {

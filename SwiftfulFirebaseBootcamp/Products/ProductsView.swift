@@ -13,10 +13,6 @@ final class ProductsViewModel: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published var selectedFilter: FilterOption? = nil
     @Published var selectedCategory: CategoryOption? = nil
-    
-//    func getAllProducts() async throws {
-//        self.products = try await ProductsManager.shared.getallProducts()
-//    }
 
     enum FilterOption: String, CaseIterable {
         case noFilter
@@ -35,16 +31,6 @@ final class ProductsViewModel: ObservableObject {
     func filterSelected(option: FilterOption) async throws {
         self.selectedFilter = option
         self.getProducts()
-
-//        switch option {
-//        case .noFilter:
-//            self.products = try await ProductsManager.shared.getallProducts()
-//        case .priceHigh:
-//            self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(descending: true)
-//        case .priceLow:
-//            self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(descending: false)
-//        }
-        
     }
     
     enum CategoryOption: String, CaseIterable {
@@ -65,13 +51,6 @@ final class ProductsViewModel: ObservableObject {
     func categorySelected(option: CategoryOption) async throws {
         self.selectedCategory = option
         self.getProducts()
-//        switch option {
-//        case .noCategory:
-//            self.products = try await ProductsManager.shared.getallProducts()
-//        case .beauty, .fragrances, .furniture, .groceries:
-//            self.products = try await ProductsManager.shared.getAllProductsForCategory(category: option.rawValue)
-//          
-//        }
     }
     
     func getProducts() {
@@ -87,6 +66,10 @@ struct ProductsView: View {
     
     var body: some View {
         List {
+            Button("FETCH MORE OBJECTS") {
+                
+            }
+            
             ForEach(viewModel.products) { product in
                 ProductCellView(product: product)
             }
@@ -118,7 +101,11 @@ struct ProductsView: View {
             }
         })
         .onAppear {
-            viewModel.getProducts()
+//            viewModel.getProducts()
+            Task {
+//                try? await FirestoreMigration.addAverageRatingToAllProducts()
+            }
+
         }
     }
 }
