@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 @MainActor
 final class ProductsViewModel: ObservableObject {
@@ -13,7 +14,8 @@ final class ProductsViewModel: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published var selectedFilter: FilterOption? = nil
     @Published var selectedCategory: CategoryOption? = nil
-
+    private var lastDocument: DocumentSnapshot? = nil
+    
     enum FilterOption: String, CaseIterable {
         case noFilter
         case priceHigh
@@ -30,6 +32,8 @@ final class ProductsViewModel: ObservableObject {
     
     func filterSelected(option: FilterOption) async throws {
         self.selectedFilter = option
+        self.products = []
+        self.lastDocument = nil
         self.getProducts()
     }
     
@@ -50,14 +54,38 @@ final class ProductsViewModel: ObservableObject {
     
     func categorySelected(option: CategoryOption) async throws {
         self.selectedCategory = option
+        self.products = []
+        self.lastDocument = nil
         self.getProducts()
     }
     
     func getProducts() {
         Task {
-            self.products = try await ProductsManager.shared.getAllProductsByPrice(priceDescending: selectedFilter?.priceDescending, forCategory: selectedCategory?.categoryKey)
+            let (newProducts, lastDocument) = try await ProductsManager.shared.getAllProducts(priceDescending: selectedFilter?.priceDescending, forCategory: selectedCategory?.categoryKey, count: 10, lastDocument: lastDocument)
+            self.products.append(contentsOf: newProducts)
+            if let lastDocument {
+                self.lastDocument = lastDocument
+            }
         }
     }
+    
+//    func getProductCount() {
+//        Task {
+//            let count = try await ProductsManager.shared.getAllProductsCount()
+//            print("ALL PRODUCT COUNT: \(count)")
+//        }
+//    }
+    
+    //    func getProductsByRating() {
+    //        Task {
+    ////            let newProducts = try await ProductsManager.shared.getProductsByRating(count: 4, lastRating: self.products.last?.averageRating)
+    //
+    //            let (newProducts, lastDocument) = try await ProductsManager.shared.getProductsByRating(count: 3, lastDocument: lastDocument)
+    //            self.products.append(contentsOf: newProducts)
+    //            self.lastDocument = lastDocument
+    //        }
+    //    }
+    
 }
 
 struct ProductsView: View {
@@ -66,13 +94,17 @@ struct ProductsView: View {
     
     var body: some View {
         List {
-            Button("FETCH MORE OBJECTS") {
-                
-            }
-            
             ForEach(viewModel.products) { product in
                 ProductCellView(product: product)
+                
+                if product == viewModel.products.last {
+                    ProgressView()
+                        .onAppear {
+                            viewModel.getProducts()
+                        }
+                }
             }
+            
         }
         .navigationTitle("Products")
         .toolbar(content: {
@@ -101,11 +133,7 @@ struct ProductsView: View {
             }
         })
         .onAppear {
-//            viewModel.getProducts()
-            Task {
-//                try? await FirestoreMigration.addAverageRatingToAllProducts()
-            }
-
+            viewModel.getProducts()
         }
     }
 }

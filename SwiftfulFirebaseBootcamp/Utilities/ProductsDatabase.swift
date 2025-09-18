@@ -45,7 +45,7 @@ struct Product: Identifiable, Codable, Equatable {
 
     }
     
-    static func ==(lhs: Product, rhs: Product) -> Bool {
+    static func == (lhs: Product, rhs: Product) -> Bool {
         return lhs.id == rhs.id
     }
     
