@@ -21,7 +21,7 @@ struct TabbarView: View {
             
             Tab("Favorites", systemImage: "star.fill") {
                 NavigationStack {
-                    Color.red
+                    FavoriteView()
                 }
             }
             
@@ -36,5 +36,7 @@ struct TabbarView: View {
 }
 
 #Preview {
-    TabbarView(showSignInView: .constant(false))
+    NavigationStack {
+        TabbarView(showSignInView: .constant(false))
+    }
 }
