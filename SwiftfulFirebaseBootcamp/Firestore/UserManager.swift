@@ -189,7 +189,7 @@ final class UserManager {
     
     func updateUserPremiumStatus(userId: String, isPremium: Bool) async throws {
         let data: [String:Any] = [
-            DBUser.CodingKeys.isPremium.rawValue : isPremium
+            DBUser.CodingKeys.isPremium.rawValue : isPremium,
         ]
         try await userDocument(userId: userId).updateData(data)
     }
