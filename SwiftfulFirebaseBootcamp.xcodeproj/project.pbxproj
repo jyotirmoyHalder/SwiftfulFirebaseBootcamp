@@ -12,6 +12,8 @@
 		B21DF6C72E712FC500E48DF0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B21DF6C62E712FC500E48DF0 /* GoogleSignIn */; };
 		B21DF6C92E712FC500E48DF0 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B21DF6C82E712FC500E48DF0 /* GoogleSignInSwift */; };
 		B21DF7102E754B5A00E48DF0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B21DF70F2E754B5A00E48DF0 /* FirebaseFirestore */; };
+		B21DFA242E80FDB200E48DF0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B21DFA232E80FDB200E48DF0 /* FirebaseStorage */; };
+		B28586B12E91408900D87ED1 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B28586B02E91408900D87ED1 /* FirebaseCrashlytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +49,10 @@
 				B21DF6A32E6FCA7B00E48DF0 /* FirebaseAnalytics in Frameworks */,
 				B21DF6A62E6FD09700E48DF0 /* FirebaseAuth in Frameworks */,
 				B21DF6C72E712FC500E48DF0 /* GoogleSignIn in Frameworks */,
+				B28586B12E91408900D87ED1 /* FirebaseCrashlytics in Frameworks */,
 				B21DF7102E754B5A00E48DF0 /* FirebaseFirestore in Frameworks */,
 				B21DF6C92E712FC500E48DF0 /* GoogleSignInSwift in Frameworks */,
+				B21DFA242E80FDB200E48DF0 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +93,7 @@
 				B21DF68D2E6FC58200E48DF0 /* Sources */,
 				B21DF68E2E6FC58200E48DF0 /* Frameworks */,
 				B21DF68F2E6FC58200E48DF0 /* Resources */,
+				B28586B22E9141DE00D87ED1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -104,6 +109,8 @@
 				B21DF6C62E712FC500E48DF0 /* GoogleSignIn */,
 				B21DF6C82E712FC500E48DF0 /* GoogleSignInSwift */,
 				B21DF70F2E754B5A00E48DF0 /* FirebaseFirestore */,
+				B21DFA232E80FDB200E48DF0 /* FirebaseStorage */,
+				B28586B02E91408900D87ED1 /* FirebaseCrashlytics */,
 			);
 			productName = SwiftfulFirebaseBootcamp;
 			productReference = B21DF6912E6FC58200E48DF0 /* SwiftfulFirebaseBootcamp.app */;
@@ -156,6 +163,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B28586B22E9141DE00D87ED1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B21DF68D2E6FC58200E48DF0 /* Sources */ = {
@@ -294,6 +327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftfulFirebaseBootcamp/Info.plist;
@@ -306,7 +340,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyotirmoyhalder.SwiftfulFirebaseBootcamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -334,7 +368,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyotirmoyhalder.SwiftfulFirebaseBootcamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -410,6 +444,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B21DF6A12E6FCA7B00E48DF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		B21DFA232E80FDB200E48DF0 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B21DF6A12E6FCA7B00E48DF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		B28586B02E91408900D87ED1 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B21DF6A12E6FCA7B00E48DF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
