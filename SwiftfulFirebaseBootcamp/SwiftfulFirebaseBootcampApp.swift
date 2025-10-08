@@ -16,7 +16,8 @@ struct SwiftfulFirebaseBootcampApp: App {
     var body: some Scene {
         WindowGroup {
 //            CrashView()
-            PerformanceView()
+//            PerformanceView()
+            AnalyticsView()
         }
     }
 }

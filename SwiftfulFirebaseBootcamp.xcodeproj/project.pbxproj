@@ -15,10 +15,13 @@
 		B21DFA242E80FDB200E48DF0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B21DFA232E80FDB200E48DF0 /* FirebaseStorage */; };
 		B28586B12E91408900D87ED1 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B28586B02E91408900D87ED1 /* FirebaseCrashlytics */; };
 		B28586BB2E951C4C00D87ED1 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = B28586BA2E951C4C00D87ED1 /* FirebasePerformance */; };
+		B28587292E96140E00D87ED1 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = B28587282E96140E00D87ED1 /* FirebaseAnalyticsCore */; };
+		B285872B2E96143D00D87ED1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B285872A2E96143D00D87ED1 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B21DF6912E6FC58200E48DF0 /* SwiftfulFirebaseBootcamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulFirebaseBootcamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B285872A2E96143D00D87ED1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -48,9 +51,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B21DF6A32E6FCA7B00E48DF0 /* FirebaseAnalytics in Frameworks */,
+				B285872B2E96143D00D87ED1 /* AdSupport.framework in Frameworks */,
 				B21DF6A62E6FD09700E48DF0 /* FirebaseAuth in Frameworks */,
 				B21DF6C72E712FC500E48DF0 /* GoogleSignIn in Frameworks */,
 				B28586B12E91408900D87ED1 /* FirebaseCrashlytics in Frameworks */,
+				B28587292E96140E00D87ED1 /* FirebaseAnalyticsCore in Frameworks */,
 				B21DF7102E754B5A00E48DF0 /* FirebaseFirestore in Frameworks */,
 				B21DF6C92E712FC500E48DF0 /* GoogleSignInSwift in Frameworks */,
 				B28586BB2E951C4C00D87ED1 /* FirebasePerformance in Frameworks */,
@@ -81,6 +86,7 @@
 		B21DF6A42E6FD09700E48DF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B285872A2E96143D00D87ED1 /* AdSupport.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +120,7 @@
 				B21DFA232E80FDB200E48DF0 /* FirebaseStorage */,
 				B28586B02E91408900D87ED1 /* FirebaseCrashlytics */,
 				B28586BA2E951C4C00D87ED1 /* FirebasePerformance */,
+				B28587282E96140E00D87ED1 /* FirebaseAnalyticsCore */,
 			);
 			productName = SwiftfulFirebaseBootcamp;
 			productReference = B21DF6912E6FC58200E48DF0 /* SwiftfulFirebaseBootcamp.app */;
@@ -462,6 +469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B21DF6A12E6FCA7B00E48DF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebasePerformance;
+		};
+		B28587282E96140E00D87ED1 /* FirebaseAnalyticsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B21DF6A12E6FCA7B00E48DF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
