@@ -14,6 +14,7 @@
 		B21DF7102E754B5A00E48DF0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B21DF70F2E754B5A00E48DF0 /* FirebaseFirestore */; };
 		B21DFA242E80FDB200E48DF0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B21DFA232E80FDB200E48DF0 /* FirebaseStorage */; };
 		B28586B12E91408900D87ED1 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B28586B02E91408900D87ED1 /* FirebaseCrashlytics */; };
+		B28586BB2E951C4C00D87ED1 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = B28586BA2E951C4C00D87ED1 /* FirebasePerformance */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 				B28586B12E91408900D87ED1 /* FirebaseCrashlytics in Frameworks */,
 				B21DF7102E754B5A00E48DF0 /* FirebaseFirestore in Frameworks */,
 				B21DF6C92E712FC500E48DF0 /* GoogleSignInSwift in Frameworks */,
+				B28586BB2E951C4C00D87ED1 /* FirebasePerformance in Frameworks */,
 				B21DFA242E80FDB200E48DF0 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +113,7 @@
 				B21DF70F2E754B5A00E48DF0 /* FirebaseFirestore */,
 				B21DFA232E80FDB200E48DF0 /* FirebaseStorage */,
 				B28586B02E91408900D87ED1 /* FirebaseCrashlytics */,
+				B28586BA2E951C4C00D87ED1 /* FirebasePerformance */,
 			);
 			productName = SwiftfulFirebaseBootcamp;
 			productReference = B21DF6912E6FC58200E48DF0 /* SwiftfulFirebaseBootcamp.app */;
@@ -454,6 +457,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B21DF6A12E6FCA7B00E48DF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		B28586BA2E951C4C00D87ED1 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B21DF6A12E6FCA7B00E48DF0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

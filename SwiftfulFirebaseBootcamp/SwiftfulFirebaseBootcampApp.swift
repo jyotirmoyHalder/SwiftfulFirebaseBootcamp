@@ -15,7 +15,8 @@ struct SwiftfulFirebaseBootcampApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CrashView()
+//            CrashView()
+            PerformanceView()
         }
     }
 }
@@ -28,4 +29,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       
     return true
   }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        
+    }
 }
